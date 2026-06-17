@@ -41,6 +41,11 @@ export default function Nav() {
             </Link>
           </li>
           <li>
+            <Link className="nav-link" href="/public-works" data-active={is("/public-works")} onClick={() => setOpen(false)}>
+              Public Works
+            </Link>
+          </li>
+          <li>
             <span className="nav-link" data-active={is("/artist")} tabIndex={0} role="button" aria-haspopup="true">
               Artist <span className="nav-caret" aria-hidden="true">▾</span>
             </span>

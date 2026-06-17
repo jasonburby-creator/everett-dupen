@@ -10,6 +10,7 @@ export default function Footer() {
         </Link>
         <nav className="foot-nav" aria-label="Footer">
           <Link href="/works">Works</Link>
+          <Link href="/public-works">Public Works</Link>
           <Link href="/artist/biography">Biography</Link>
           <Link href="/artist/book">Book</Link>
           <Link href="/press">Press</Link>
