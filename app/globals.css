@@ -249,8 +249,8 @@ a{ color:inherit; }
 .press-list a{ display:grid; grid-template-columns:120px 1fr auto; gap:1.5rem; align-items:baseline; padding:1.6rem 0; text-decoration:none; transition:padding-left .3s; }
 .press-list a:hover{ padding-left:.6rem; }
 .press-date{ font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); }
-.press-main .outlet{ font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); font-weight:700; margin-bottom:.3rem; }
-.press-main .headline{ font-family:var(--f-display); font-size:1.3rem; line-height:1.25; color:var(--ink); }
+.press-main .outlet{ display:block; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); font-weight:700; margin-bottom:.35rem; }
+.press-main .headline{ display:block; font-family:var(--f-display); font-size:1.3rem; line-height:1.25; color:var(--ink); }
 .press-arrow{ color:var(--patina); font-size:1.1rem; transition:transform .3s; }
 .press-list a:hover .press-arrow{ transform:translateX(4px); }
 @media(max-width:680px){ .press-list a{ grid-template-columns:1fr; gap:.4rem; } .press-arrow{ display:none; } }

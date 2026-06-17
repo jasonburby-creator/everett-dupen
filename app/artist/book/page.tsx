@@ -16,23 +16,33 @@ export default function BookPage() {
         </div>
 
         <div className="book-grid">
-          <Reveal className="book-cover">
-            <div className="bc-top">Cascadia Art Museum</div>
-            <div className="bc-title">Eternal Forms</div>
-            <div>
-              <div style={{ fontFamily: "var(--f-body)", fontSize: ".8rem", color: "#C9C0AE", marginBottom: ".4rem" }}>
-                The Sculpture of Everett DuPen
-              </div>
-              <div className="bc-author">David F. Martin</div>
-            </div>
+          <Reveal>
+            <a
+              href="https://www.amazon.com/Eternal-Forms-Sculpture-Everett-DuPen/dp/0998911283"
+              target="_blank"
+              rel="noopener"
+              style={{ display: "block" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/book-cover.jpg"
+                alt="Eternal Forms: The Sculpture of Everett DuPen — book cover"
+                style={{
+                  width: "100%",
+                  maxWidth: "360px",
+                  border: "1px solid var(--hair)",
+                  boxShadow: "0 40px 70px -34px rgba(41,36,25,.6)",
+                }}
+              />
+            </a>
           </Reveal>
 
           <Reveal>
             <p className="eyebrow">Published 2026</p>
             <h2 className="book-title">Eternal Forms: The Sculpture of Everett DuPen</h2>
             <p className="film-desc">
-              The monograph accompanying the Cascadia Art Museum's career-spanning exhibition, written
-              by curator and art historian David F. Martin. It traces DuPen's life and nearly eight
+              The monograph accompanying the Cascadia Art Museum&apos;s career-spanning exhibition, written
+              by curator and art historian David F. Martin. It traces DuPen&apos;s life and nearly eight
               decades of figurative work in bronze, wood, stone, and terra cotta, drawing on the
               collection assembled with the DuPen Family Foundation.
             </p>
@@ -46,17 +56,17 @@ export default function BookPage() {
                 Cascadia Art Museum
               </div>
               <div>
-                <b>Subject</b>
-                Everett DuPen, 1912–2005
+                <b>Format</b>
+                Hardback · $29.95
               </div>
             </div>
             <a
-              className="link"
-              href="https://www.cascadiaartmuseum.org/eternal-forms-the-sculpture-of-everett-dupen/"
+              className="btn"
+              href="https://www.amazon.com/Eternal-Forms-Sculpture-Everett-DuPen/dp/0998911283"
               target="_blank"
               rel="noopener"
             >
-              Available through the Cascadia Art Museum →
+              Buy on Amazon <span className="arr" aria-hidden="true">→</span>
             </a>
           </Reveal>
         </div>
