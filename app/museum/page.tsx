@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import { imgSrc } from "@/lib/img";
 
 export const metadata: Metadata = {
   title: "Museum",
@@ -20,9 +19,9 @@ export default function MuseumPage() {
           <Reveal as="figure" className="life-portrait" style={{ margin: 0 }}>
             <div className="frame">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={imgSrc("works/Singers-and-Dancers.jpg", 820)} alt="Singers and Dancers by Everett DuPen" />
+              <img src="/images/museum-exhibition.jpg" alt="Eternal Forms: The Sculpture of Everett DuPen — exhibition entrance at Cascadia Art Museum" style={{ aspectRatio: "auto" }} />
             </div>
-            <figcaption>Singers and Dancers — in the museum collection</figcaption>
+            <figcaption>The exhibition at Cascadia Art Museum, Edmonds</figcaption>
           </Reveal>
 
           <Reveal>
