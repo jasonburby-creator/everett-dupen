@@ -4,22 +4,23 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /* ------------------------------------------------------------------ *
- * Hero rotation
+ * Hero rotation — 5-image set
  * ------------------------------------------------------------------ *
- * Built for a 5-image rotation. Two are wired up; drop the remaining
- * three files into /public/hero and uncomment their entries to reach 5.
- * The component renders however many slides are defined, so it works
- * with 2 today and 5 once you add the rest.
- *
- *  - src      path under /public
- *  - alt      describe the work for screen readers + SEO
- *  - position object-position for full-bleed cropping ('center',
- *             'center 30%', 'left', etc.)
- *  - tone     'dark'  = bright/light text over a dark image
- *             'light' = dark text over a bright image (e.g. white seamless)
+ *  - fit      'cover'   = full-bleed crop (landscape photos)
+ *             'contain' = show the entire sculpture, pad the sides
+ *  - bg       background color behind contained images
+ *  - tone     'dark'  = light text   |  'light' = dark text
  * ------------------------------------------------------------------ */
 type Tone = 'dark' | 'light';
-type Slide = { src: string; alt: string; position?: string; tone?: Tone };
+type Fit = 'cover' | 'contain';
+type Slide = {
+  src: string;
+  alt: string;
+  position?: string;
+  tone?: Tone;
+  fit?: Fit;
+  bg?: string;
+};
 
 const SLIDES: Slide[] = [
   {
@@ -27,42 +28,41 @@ const SLIDES: Slide[] = [
     alt: 'Bronze figurative sculpture by Everett DuPen of a reclining male nude, one arm raised with fist clenched.',
     position: 'center',
     tone: 'light',
+    fit: 'contain',
+    bg: '#f0ece5',
   },
   {
     src: '/hero/seattle-center-fountain.jpg',
-    alt: 'Everett DuPen’s bronze fountain sculpture at Seattle Center, with the Space Needle rising beyond on an overcast day.',
+    alt: 'Everett DuPen\u2019s bronze fountain sculpture at Seattle Center, with the Space Needle rising beyond on an overcast day.',
     position: 'center',
     tone: 'dark',
+    fit: 'cover',
   },
   {
     src: '/hero/family-group.jpg',
-    alt: 'Carved wood relief by Everett DuPen titled “Family Group,” a mother and two children embracing.',
-    position: 'center 30%',
+    alt: 'Carved wood relief by Everett DuPen titled \u201cFamily Group,\u201d a mother and two children embracing.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#e8e3db',
   },
   {
     src: '/hero/icarus.jpg',
-    alt: 'Bronze sculpture by Everett DuPen titled “Icarus,” a falling figure with outstretched limbs, on a wood base.',
-    position: 'center',
+    alt: 'Bronze sculpture by Everett DuPen titled \u201cIcarus,\u201d a falling figure with outstretched limbs, on a wood base.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#e2ddd5',
   },
   {
     src: '/hero/prometheus.jpg',
-    alt: 'Carved stone head by Everett DuPen titled “Prometheus,” a furrowed, intense expression, on a black base.',
-    position: 'center 35%',
+    alt: 'Carved stone head by Everett DuPen titled \u201cPrometheus,\u201d a furrowed, intense expression, on a black base.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#e4dfd8',
   },
 ];
 
-// Lower-third placard. Set to null to hide.
-const PLACARD: { name: string; dates: string; line: string } | null = {
-  name: 'Everett DuPen',
-  dates: '1912 – 2005', // confirm dates
-  line: 'American figurative sculptor',
-};
-
-const HOLD_MS = 6500; // how long each image holds
-const FADE_MS = 1600; // cross-fade duration
+const HOLD_MS = 6500;
+const FADE_MS = 1600;
 
 export default function HeroSlideshow() {
   const slides = SLIDES.filter((s) => Boolean(s.src));
@@ -70,7 +70,6 @@ export default function HeroSlideshow() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // honor the OS "reduce motion" preference
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReducedMotion(mq.matches);
@@ -85,7 +84,6 @@ export default function HeroSlideshow() {
     [slides.length],
   );
 
-  // auto-advance (paused under reduced motion or with a single image)
   useEffect(() => {
     if (reducedMotion || slides.length < 2) return;
     timer.current = setTimeout(() => go(index + 1), HOLD_MS);
@@ -104,9 +102,9 @@ export default function HeroSlideshow() {
       aria-label="Selected works by Everett DuPen"
       className="relative h-[calc(100dvh-4rem)] min-h-[520px] w-full overflow-hidden bg-[#15110d]"
     >
-      {/* Image stack — each slide carries its own tone-matched scrim */}
       {slides.map((slide, i) => {
         const slideTone: Tone = slide.tone ?? 'dark';
+        const slideFit: Fit = slide.fit ?? 'cover';
         const scrim =
           slideTone === 'light'
             ? 'linear-gradient(to top, rgba(245,241,234,0.86) 0%, rgba(245,241,234,0.25) 34%, rgba(245,241,234,0) 62%)'
@@ -119,6 +117,7 @@ export default function HeroSlideshow() {
             style={{
               opacity: i === index ? 1 : 0,
               transitionDuration: reducedMotion ? '0ms' : `${FADE_MS}ms`,
+              backgroundColor: slide.bg ?? '#15110d',
             }}
           >
             <Image
@@ -127,7 +126,7 @@ export default function HeroSlideshow() {
               fill
               priority={i === 0}
               sizes="100vw"
-              className="object-cover"
+              className={slideFit === 'contain' ? 'object-contain' : 'object-cover'}
               style={{ objectPosition: slide.position ?? 'center' }}
             />
             <div
@@ -140,30 +139,28 @@ export default function HeroSlideshow() {
       })}
 
       {/* Placard */}
-      {PLACARD && (
-        <div
-          className="absolute bottom-0 left-0 p-6 transition-colors sm:p-10 md:p-14"
-          style={{ transitionDuration: `${FADE_MS}ms` }}
+      <div
+        className="absolute bottom-0 left-0 p-6 transition-colors sm:p-10 md:p-14"
+        style={{ transitionDuration: `${FADE_MS}ms` }}
+      >
+        <h1
+          className="text-4xl leading-[0.95] tracking-tight sm:text-6xl md:text-7xl"
+          style={{
+            fontFamily: 'Georgia, "Times New Roman", serif',
+            color: nameColor,
+          }}
         >
-          <h1
-            className="text-4xl leading-[0.95] tracking-tight sm:text-6xl md:text-7xl"
-            style={{
-              fontFamily: 'Georgia, "Times New Roman", serif',
-              color: nameColor,
-            }}
-          >
-            {PLACARD.name}
-          </h1>
-          <p
-            className="mt-3 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] sm:text-xs"
-            style={{ color: subColor }}
-          >
-            <span>{PLACARD.dates}</span>
-            <span aria-hidden className="h-px w-8 bg-[#b08d57]" />
-            <span>{PLACARD.line}</span>
-          </p>
-        </div>
-      )}
+          Everett DuPen
+        </h1>
+        <p
+          className="mt-3 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] sm:text-xs"
+          style={{ color: subColor }}
+        >
+          <span>1912 – 2005</span>
+          <span aria-hidden className="h-px w-8 bg-[#b08d57]" />
+          <span>American figurative sculptor</span>
+        </p>
+      </div>
 
       {/* Pagination / progress */}
       {slides.length > 1 && (
