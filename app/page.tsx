@@ -1,3 +1,5 @@
+import SiteNav from '@/components/SiteNav';
+import HeroSlideshow from '@/components/HeroSlideshow';
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Ribbon from "@/components/Ribbon";
@@ -23,39 +25,9 @@ const FEATURED = [
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <div className="wrap hero-grid">
-          <Reveal className="hero-copy">
-            <p className="eyebrow">
-              American Sculptor <span className="dot">·</span> 1912 – 2005
-            </p>
-            <h1>
-              <span className="given">Everett</span>DuPen
-            </h1>
-            <p className="lede">
-              Eight decades shaping the human figure — in bronze, wood, stone, and line.
-            </p>
-            <div className="hero-cta">
-              <Link className="btn" href="/works">
-                View the catalogue <span className="arr" aria-hidden="true">→</span>
-              </Link>
-              <span className="hero-stat">
-                <b>87</b> works across four mediums
-              </span>
-            </div>
-          </Reveal>
-
-          <Reveal as="figure" className="cluster">
-            {HERO.map((h) => (
-              <span key={h.cls} className={`pane ${h.cls}`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={imgSrc(h.file, h.w)} alt={h.alt} />
-              </span>
-            ))}
-            <figcaption className="cap">Bronzes, cast across five decades</figcaption>
-          </Reveal>
-        </div>
-      </section>
+      <SiteNav />
+      <HeroSlideshow />
+      
 
       <Ribbon />
 
