@@ -1,8 +1,15 @@
+import SiteNav from '@/components/SiteNav';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Ribbon from "@/components/Ribbon";
 import { imgSrc } from "@/lib/img";
+
+const HERO = [
+  { file: "works/Icarus.jpg", w: 760, cls: "p1", alt: "Icarus, bronze" },
+  { file: "works/Rising-to-the-Sun.jpg", w: 620, cls: "p2", alt: "Rising to the Sun, bronze" },
+  { file: "works/Singers-and-Dancers.jpg", w: 620, cls: "p3", alt: "Singers and Dancers, bronze" },
+];
 
 const FEATURED = [
   { title: "Voyager", file: "works/Voyager.jpg" },
@@ -18,7 +25,9 @@ const FEATURED = [
 export default function Home() {
   return (
     <>
+      <SiteNav />
       <HeroSlideshow />
+      
 
       <Ribbon />
 
@@ -94,10 +103,10 @@ export default function Home() {
               <div className="sc-t">Complete catalogue</div>
               <div className="sc-d">All 87 pieces in bronze, wood, stone, and drawings.</div>
             </Link>
-            <Link className="sec-card" href="/press">
-              <div className="sc-k">In Print</div>
-              <div className="sc-t">Press & exhibitions</div>
-              <div className="sc-d">Articles, reviews, and his current museum showing.</div>
+            <Link className="sec-card" href="/artist/book">
+              <div className="sc-k">The Book</div>
+              <div className="sc-t">Eternal Forms</div>
+              <div className="sc-d">The illustrated monograph on DuPen's life and eight decades of sculpture.</div>
             </Link>
           </div>
         </div>
