@@ -388,3 +388,17 @@ a{ color:inherit; }
 .bio-quotes-source{ font-size:.82rem; color:var(--ink-soft); margin-top:1.5rem; }
 .bio-quotes-source a{ color:var(--bronze); text-decoration:none; }
 .bio-quotes-source a:hover{ text-decoration:underline; }
+
+/* ── The Studio page ── */
+.studio-section{ margin-bottom:clamp(3rem,6vw,5rem); }
+.studio-section-head{ display:flex; align-items:baseline; gap:1rem; margin-bottom:1.5rem; border-bottom:1px solid var(--hair); padding-bottom:.75rem; }
+.studio-section-head h2{ font-family:var(--f-display); font-style:italic; font-size:1.4rem; color:var(--ink); margin:0; }
+.studio-period{ font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+.studio-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:1.5rem; }
+.studio-fig{ margin:0; }
+.studio-fig img{ display:block; width:100%; height:auto; border-radius:4px; background:var(--plaster-2); }
+.studio-fig figcaption{ padding:.75rem 0; }
+.studio-date{ display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--bronze); font-weight:700; margin-bottom:.3rem; }
+.studio-cap{ display:block; font-size:.88rem; line-height:1.5; color:var(--ink-soft); }
+.studio-credit{ display:block; font-size:.75rem; color:var(--ink-soft); font-style:italic; margin-top:.25rem; }
+@media(max-width:620px){ .studio-grid{ grid-template-columns:1fr; } }
