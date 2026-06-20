@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { PUBLIC_WORKS, CATEGORIES, type PublicWork } from "@/lib/public-works";
 
 const CAT_KEYS = Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[];
@@ -206,6 +207,15 @@ export default function PublicWorksMap() {
                 <div className="pw-loc">{w.location}, {w.city}</div>
                 {w.medium && <div className="pw-med">{w.medium}</div>}
                 <p className="pw-desc">{w.description}</p>
+                {w.id === "fountain-of-creation" && (
+                  <Link
+                    href="/works/fountain-of-creation"
+                    className="pw-feature-link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Read the full story <span className="arr" aria-hidden="true">→</span>
+                  </Link>
+                )}
               </div>
               {w.image && (
                 <div
