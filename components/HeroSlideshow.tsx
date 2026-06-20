@@ -4,60 +4,65 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /* ------------------------------------------------------------------ *
- * Hero rotation — 5-image set
+ * Hero rotation — 6-image set
  * ------------------------------------------------------------------ *
- *  - fit      'cover'   = full-bleed crop (landscape photos)
- *             'contain' = show the entire sculpture, pad the sides
- *  - bg       background color behind contained images
+ *  - title    name of the work (shown on slide)
+ *  - material medium (shown on slide)
  *  - tone     'dark'  = light text   |  'light' = dark text
  * ------------------------------------------------------------------ */
 type Tone = 'dark' | 'light';
-type Fit = 'cover' | 'contain';
 type Slide = {
   src: string;
   alt: string;
+  title: string;
+  material: string;
   position?: string;
   tone?: Tone;
-  fit?: Fit;
-  bg?: string;
 };
 
 const SLIDES: Slide[] = [
   {
-    src: '/hero/reclining-figure.jpg',
-    alt: 'Bronze figurative sculpture by Everett DuPen of a reclining male nude, one arm raised with fist clenched.',
-    position: 'center',
+    src: '/hero/upheaval.jpg',
+    title: 'Upheaval',
+    material: 'Bronze',
+    alt: 'Bronze sculpture by Everett DuPen titled "Upheaval," a reclining figure with one arm raised, fist clenched.',
     tone: 'light',
-    fit: 'contain',
-    bg: '#f0ece5',
   },
   {
     src: '/hero/seattle-center-fountain.jpg',
+    title: 'Fountain of Creation',
+    material: 'Bronze',
     alt: 'Everett DuPen\u2019s bronze fountain sculpture at Seattle Center, with the Space Needle rising beyond on an overcast day.',
-    position: 'center',
+    position: 'center 20%',
     tone: 'dark',
-    fit: 'cover',
   },
   {
-    src: '/hero/family-group.jpg',
-    alt: 'Carved wood relief by Everett DuPen titled \u201cFamily Group,\u201d a mother and two children embracing.',
+    src: '/hero/northwest-fishermen.jpg',
+    title: 'Northwest Fishermen',
+    material: 'Carved walnut',
+    alt: 'Carved walnut wood relief by Everett DuPen titled "Northwest Fishermen," two male figures hauling a net of fish.',
     tone: 'light',
-    fit: 'contain',
-    bg: '#e8e3db',
   },
   {
-    src: '/hero/icarus.jpg',
-    alt: 'Bronze sculpture by Everett DuPen titled \u201cIcarus,\u201d a falling figure with outstretched limbs, on a wood base.',
+    src: '/hero/neptunes-daughter.jpg',
+    title: 'Neptune\u2019s Daughter',
+    material: 'Bronze',
+    alt: 'Bronze sculpture by Everett DuPen titled "Neptune\u2019s Daughter," a seated female figure with one foot raised.',
     tone: 'light',
-    fit: 'contain',
-    bg: '#e2ddd5',
   },
   {
-    src: '/hero/prometheus.jpg',
-    alt: 'Carved stone head by Everett DuPen titled \u201cPrometheus,\u201d a furrowed, intense expression, on a black base.',
+    src: '/hero/happy-gardener.jpg',
+    title: 'Happy Gardener',
+    material: 'Marble',
+    alt: 'Marble sculpture by Everett DuPen titled "Happy Gardener," a reclining woman cradling an infant.',
     tone: 'light',
-    fit: 'contain',
-    bg: '#e4dfd8',
+  },
+  {
+    src: '/hero/the-reader-and-female-relief.jpg',
+    title: 'The Reader & Female Relief',
+    material: 'Bronze relief',
+    alt: 'Pair of bronze relief panels by Everett DuPen — "The Reader" and "Female Relief," compact seated figures.',
+    tone: 'light',
   },
 ];
 
@@ -94,8 +99,8 @@ export default function HeroSlideshow() {
 
   const tone: Tone = slides[index]?.tone ?? 'dark';
   const onLight = tone === 'light';
-  const nameColor = onLight ? '#1b1714' : '#f5f1ea';
-  const subColor = onLight ? '#5c5043' : '#c9bda9';
+  const textPrimary = onLight ? '#1b1714' : '#f5f1ea';
+  const textSecondary = onLight ? '#5c5043' : '#c9bda9';
 
   return (
     <section
@@ -104,11 +109,10 @@ export default function HeroSlideshow() {
     >
       {slides.map((slide, i) => {
         const slideTone: Tone = slide.tone ?? 'dark';
-        const slideFit: Fit = slide.fit ?? 'cover';
         const scrim =
           slideTone === 'light'
-            ? 'linear-gradient(to top, rgba(245,241,234,0.86) 0%, rgba(245,241,234,0.25) 34%, rgba(245,241,234,0) 62%)'
-            : 'linear-gradient(to top, rgba(10,8,6,0.80) 0%, rgba(10,8,6,0.25) 34%, rgba(10,8,6,0) 62%)';
+            ? 'linear-gradient(to top, rgba(245,241,234,0.72) 0%, rgba(245,241,234,0.18) 28%, rgba(245,241,234,0) 52%)'
+            : 'linear-gradient(to top, rgba(10,8,6,0.74) 0%, rgba(10,8,6,0.20) 28%, rgba(10,8,6,0) 52%)';
         return (
           <div
             key={slide.src}
@@ -117,7 +121,6 @@ export default function HeroSlideshow() {
             style={{
               opacity: i === index ? 1 : 0,
               transitionDuration: reducedMotion ? '0ms' : `${FADE_MS}ms`,
-              backgroundColor: slide.bg ?? '#15110d',
             }}
           >
             <Image
@@ -126,7 +129,7 @@ export default function HeroSlideshow() {
               fill
               priority={i === 0}
               sizes="100vw"
-              className={slideFit === 'contain' ? 'object-contain' : 'object-cover'}
+              className="object-cover"
               style={{ objectPosition: slide.position ?? 'center' }}
             />
             <div
@@ -138,7 +141,7 @@ export default function HeroSlideshow() {
         );
       })}
 
-      {/* Placard */}
+      {/* Lower-left: artist name + slide title & material */}
       <div
         className="absolute bottom-0 left-0 p-6 transition-colors sm:p-10 md:p-14"
         style={{ transitionDuration: `${FADE_MS}ms` }}
@@ -147,18 +150,30 @@ export default function HeroSlideshow() {
           className="text-4xl leading-[0.95] tracking-tight sm:text-6xl md:text-7xl"
           style={{
             fontFamily: 'Georgia, "Times New Roman", serif',
-            color: nameColor,
+            color: textPrimary,
           }}
         >
           Everett DuPen
         </h1>
         <p
           className="mt-3 flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] sm:text-xs"
-          style={{ color: subColor }}
+          style={{ color: textSecondary }}
         >
           <span>1912 – 2005</span>
           <span aria-hidden className="h-px w-8 bg-[#b08d57]" />
           <span>American figurative sculptor</span>
+        </p>
+
+        {/* Per-slide title & material */}
+        <p
+          className="mt-5 text-[13px] tracking-wide sm:text-sm"
+          style={{ color: textSecondary, fontStyle: 'italic' }}
+        >
+          <span style={{ color: textPrimary, fontStyle: 'normal', fontWeight: 500 }}>
+            {slides[index]?.title}
+          </span>
+          {' · '}
+          {slides[index]?.material}
         </p>
       </div>
 
@@ -170,7 +185,7 @@ export default function HeroSlideshow() {
               key={slide.src}
               type="button"
               onClick={() => go(i)}
-              aria-label={`Show image ${i + 1} of ${slides.length}`}
+              aria-label={`Show ${slide.title}`}
               aria-current={i === index}
               className="relative h-[3px] w-10 overflow-hidden rounded-full bg-white/25 transition-colors hover:bg-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b08d57]"
             >
