@@ -47,6 +47,15 @@ const SLIDES: Slide[] = [
     fit: 'cover',
   },
   {
+    src: '/hero/workshop.jpg',
+    title: 'The Artist at Work',
+    material: 'In the studio',
+    alt: 'Everett DuPen in his studio, holding a bronze figure at arm\u2019s length, surrounded by tools and small sculptures.',
+    position: 'center 35%',
+    tone: 'dark',
+    fit: 'cover',
+  },
+  {
     src: '/hero/northwest-fishermen.jpg',
     title: 'Northwest Fishermen',
     material: 'Carved walnut',

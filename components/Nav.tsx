@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const ARTIST = [
   { href: "/artist/biography", label: "Biography", sub: "His life and times" },
+  { href: "/artist/studio", label: "The Studio", sub: "The artist at work" },
   { href: "/artist/documentary", label: "Documentary", sub: "The film by BJ Bullert" },
   { href: "/artist/resume", label: "Résumé", sub: "Career, honors, collections" },
   { href: "/artist/book", label: "Book", sub: "Eternal Forms" },
