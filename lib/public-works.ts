@@ -191,6 +191,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     description:
       "A monumental 30-foot by 20-foot carved plaster relief altarpiece — DuPen's largest single-surface work. St. John the Baptist was DuPen's own parish; his memorial service was held here in June 2005.",
     category: "church",
+    image: "johnthebaptist.jpg",
   },
   {
     id: "emmanuel-mi",
@@ -292,7 +293,6 @@ export const PUBLIC_WORKS: PublicWork[] = [
     description:
       "A bronze figure of a diver at the Edmonds Library, just blocks from where the Cascadia Art Museum now hosts the Eternal Forms exhibition.",
     category: "civic",
-    image: "diver-edmonds.jpg",
   },
 
   // ── MUSEUMS ──
@@ -308,6 +308,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     description:
       "A plaster version of the iconic Dancers and Singers, gifted by the DuPen Family Foundation in 2024. The museum is currently hosting Eternal Forms: The Sculpture of Everett DuPen through September 13, 2026.",
     category: "museum",
+    image: "cascadia-dancers-singers.jpg",
   },
 
   // ── OUT OF STATE ──
