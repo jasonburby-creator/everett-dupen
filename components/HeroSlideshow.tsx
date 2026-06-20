@@ -64,6 +64,13 @@ const SLIDES: Slide[] = [
     alt: 'Pair of bronze relief panels by Everett DuPen — "The Reader" and "Female Relief," compact seated figures.',
     tone: 'light',
   },
+  {
+    src: '/hero/family-group.jpg',
+    title: 'Family Group',
+    material: 'Carved wood',
+    alt: 'Carved wood relief by Everett DuPen titled "Family Group," a mother and two children embracing.',
+    tone: 'light',
+  },
 ];
 
 const HOLD_MS = 6500;
