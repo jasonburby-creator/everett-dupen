@@ -289,7 +289,7 @@ a{ color:inherit; }
 .pw-desc{ font-size:.9rem; color:var(--ink-soft); line-height:1.55; margin:.55rem 0 0; }
 
 /* Side thumbnail */
-.pw-thumb{ width:100px; height:100px; flex-shrink:0; border-radius:4px; overflow:hidden; position:relative; cursor:zoom-in; background:var(--plaster-2); display:flex; align-items:center; justify-content:center; }
+.pw-thumb{ width:100px; height:100px; flex-shrink:0; border-radius:4px; overflow:hidden; position:relative; cursor:zoom-in; background:var(--paper); display:flex; align-items:center; justify-content:center; }
 .pw-thumb img{ display:block; }
 .pw-expand{ position:absolute; bottom:4px; right:4px; width:24px; height:24px; border-radius:4px; background:rgba(0,0,0,.45); color:#fff; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .2s; }
 .pw-thumb:hover .pw-expand{ opacity:1; }
