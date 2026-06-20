@@ -62,7 +62,7 @@ export default function PublicWorksMap() {
         });
 
         const imgTag = w.image
-          ? `<img src="/public-works/${w.image}" alt="${w.title}" style="width:100%;max-height:180px;object-fit:contain;border-radius:3px;margin-bottom:8px;background:#f0ece5;" />`
+          ? `<img src="/public-works/${w.image}" alt="${w.title}" style="width:100%;max-height:180px;object-fit:contain;border-radius:3px;margin-bottom:8px;background:#fff;" />`
           : "";
 
         const marker = L.marker([w.lat, w.lng], { icon })
