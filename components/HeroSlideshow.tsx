@@ -139,7 +139,7 @@ export default function HeroSlideshow() {
   return (
     <section
       aria-label="Selected works by Everett DuPen"
-      className="relative h-[calc(100dvh-4rem)] min-h-[520px] w-full overflow-hidden bg-[#15110d]"
+      className="relative h-[calc(100dvh-4rem)] min-h-[360px] sm:min-h-[520px] w-full overflow-hidden bg-[#15110d]"
     >
       {slides.map((slide, i) => {
         const slideTone: Tone = slide.tone ?? 'dark';
@@ -223,7 +223,7 @@ export default function HeroSlideshow() {
               onClick={() => go(i)}
               aria-label={`Show ${slide.title}`}
               aria-current={i === index}
-              className="relative h-[3px] w-10 overflow-hidden rounded-full bg-white/25 transition-colors hover:bg-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b08d57]"
+              className="relative h-[3px] w-7 sm:w-10 overflow-hidden rounded-full bg-white/25 transition-colors hover:bg-white/45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b08d57]"
             >
               <span
                 key={i === index ? `fill-${index}` : `idle-${i}`}
