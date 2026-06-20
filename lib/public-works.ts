@@ -24,7 +24,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     date: "1962",
     medium: "Bronze and colored concrete",
     description:
-      "Three organic bronze forms — Evolution of Man, Flight of Gulls, and Seaweed — rise from a stone-and-water basin. Commissioned for the 1962 World's Fair, designed with architect Paul Thiry. Renovated as a splash-pad plaza in 2022–2025 and rededicated with the DuPen family in attendance. A Seattle Landmark.",
+      "Three organic bronze forms — Evolution of Man, Flight of Gulls, and Seaweed — rise from a stone-and-water basin. Commissioned for the 1962 World's Fair, designed with architect Paul Thiry. Renovated as a splash-pad plaza in 2022–2025 and rededicated with the DuPen family in attendance. A Seattle Landmark. See Patricia Failing's essay in Profiles (2012) for the full story of Thiry and DuPen's collaboration.",
     category: "landmark",
     image: "fountain-of-creation.jpg",
   },
@@ -95,7 +95,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     date: "1947",
     medium: "Limestone relief",
     description:
-      "Originally on the exterior of the UW's Electrical Engineering building (since demolished). Relocated to the Allen Center. In Inquisitiveness, a powerful male figure strains upward as if to escape the frame — among DuPen's most admired pieces.",
+      "Originally on the exterior of the UW's Electrical Engineering building (since demolished). Relocated to the Allen Center. In Inquisitiveness, a powerful male figure strains upward as if to escape the frame — among DuPen's most admired pieces. Art historian Patricia Failing explores the story of this commission in Profiles (2012).",
     category: "campus",
     image: "uw-triptych.jpg",
   },
@@ -109,7 +109,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     date: "1973",
     medium: "Bronze, 3× life size",
     description:
-      "A monumental bronze portrait bust of Charles Odegaard, President of the University of Washington, located in the graduate library.",
+      "A monumental bronze portrait bust of Charles Odegaard, President of the University of Washington, located in the graduate library. Patricia Failing notes DuPen employed subtle shifts of surface texture to vary the play of light, creating a sympathetic portrait from life (Profiles, 2012).",
     category: "campus",
     image: "uw-odegaard.jpg",
   },
@@ -315,7 +315,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
   // ── OUT OF STATE ──
   {
     id: "dallas",
-    title: "Two Life-Size Bronze Figures",
+    title: "Exuberance",
     location: "Office building, 7557 Rambler Road",
     city: "Dallas, TX",
     lat: 32.870000,
@@ -323,7 +323,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     date: "",
     medium: "Bronze, 11 feet",
     description:
-      "Two life-size (11-foot) bronze figures for a commercial office building in Dallas — DuPen's only documented work in Texas.",
+      "Two life-size (11-foot) bronze figures titled Exuberance for a commercial office building in Dallas — DuPen's only documented work in Texas.",
     category: "corporate",
     image: "dallas-bronze-figures.jpg",
   },
