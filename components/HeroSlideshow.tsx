@@ -4,13 +4,16 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /* ------------------------------------------------------------------ *
- * Hero rotation — 6-image set
+ * Hero rotation — 7-image set
  * ------------------------------------------------------------------ *
- *  - title    name of the work (shown on slide)
- *  - material medium (shown on slide)
+ *  - fit      'cover'   = full-bleed crop (landscape/environmental)
+ *             'contain' = show the entire work, pad the sides
+ *  - bg       background color behind contained images
  *  - tone     'dark'  = light text   |  'light' = dark text
+ *  - scrim    custom scrim gradient (overrides the tone default)
  * ------------------------------------------------------------------ */
 type Tone = 'dark' | 'light';
+type Fit = 'cover' | 'contain';
 type Slide = {
   src: string;
   alt: string;
@@ -18,6 +21,9 @@ type Slide = {
   material: string;
   position?: string;
   tone?: Tone;
+  fit?: Fit;
+  bg?: string;
+  scrim?: string;
 };
 
 const SLIDES: Slide[] = [
@@ -26,7 +32,10 @@ const SLIDES: Slide[] = [
     title: 'Upheaval',
     material: 'Bronze',
     alt: 'Bronze sculpture by Everett DuPen titled "Upheaval," a reclining figure with one arm raised, fist clenched.',
+    position: 'center 70%',
     tone: 'light',
+    fit: 'cover',
+    scrim: 'linear-gradient(to top, rgba(245,241,234,0.50) 0%, rgba(245,241,234,0.10) 18%, rgba(245,241,234,0) 36%)',
   },
   {
     src: '/hero/seattle-center-fountain.jpg',
@@ -35,6 +44,7 @@ const SLIDES: Slide[] = [
     alt: 'Everett DuPen\u2019s bronze fountain sculpture at Seattle Center, with the Space Needle rising beyond on an overcast day.',
     position: 'center 20%',
     tone: 'dark',
+    fit: 'cover',
   },
   {
     src: '/hero/northwest-fishermen.jpg',
@@ -42,6 +52,8 @@ const SLIDES: Slide[] = [
     material: 'Carved walnut',
     alt: 'Carved walnut wood relief by Everett DuPen titled "Northwest Fishermen," two male figures hauling a net of fish.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#e5e0d8',
   },
   {
     src: '/hero/neptunes-daughter.jpg',
@@ -49,6 +61,8 @@ const SLIDES: Slide[] = [
     material: 'Bronze',
     alt: 'Bronze sculpture by Everett DuPen titled "Neptune\u2019s Daughter," a seated female figure with one foot raised.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#d8d3cb',
   },
   {
     src: '/hero/happy-gardener.jpg',
@@ -56,13 +70,16 @@ const SLIDES: Slide[] = [
     material: 'Marble',
     alt: 'Marble sculpture by Everett DuPen titled "Happy Gardener," a reclining woman cradling an infant.',
     tone: 'light',
+    fit: 'cover',
   },
   {
     src: '/hero/the-reader-and-female-relief.jpg',
     title: 'The Reader & Female Relief',
     material: 'Bronze relief',
-    alt: 'Pair of bronze relief panels by Everett DuPen — "The Reader" and "Female Relief," compact seated figures.',
+    alt: 'Pair of bronze relief panels by Everett DuPen \u2014 "The Reader" and "Female Relief," compact seated figures.',
     tone: 'light',
+    fit: 'contain',
+    bg: '#d5d0c9',
   },
   {
     src: '/hero/family-group.jpg',
@@ -70,6 +87,7 @@ const SLIDES: Slide[] = [
     material: 'Carved wood',
     alt: 'Carved wood relief by Everett DuPen titled "Family Group," a mother and two children embracing.',
     tone: 'light',
+    fit: 'cover',
   },
 ];
 
@@ -116,7 +134,8 @@ export default function HeroSlideshow() {
     >
       {slides.map((slide, i) => {
         const slideTone: Tone = slide.tone ?? 'dark';
-        const scrim =
+        const slideFit: Fit = slide.fit ?? 'cover';
+        const defaultScrim =
           slideTone === 'light'
             ? 'linear-gradient(to top, rgba(245,241,234,0.72) 0%, rgba(245,241,234,0.18) 28%, rgba(245,241,234,0) 52%)'
             : 'linear-gradient(to top, rgba(10,8,6,0.74) 0%, rgba(10,8,6,0.20) 28%, rgba(10,8,6,0) 52%)';
@@ -128,6 +147,7 @@ export default function HeroSlideshow() {
             style={{
               opacity: i === index ? 1 : 0,
               transitionDuration: reducedMotion ? '0ms' : `${FADE_MS}ms`,
+              backgroundColor: slide.bg ?? (slideTone === 'light' ? '#f0ece5' : '#15110d'),
             }}
           >
             <Image
@@ -136,13 +156,13 @@ export default function HeroSlideshow() {
               fill
               priority={i === 0}
               sizes="100vw"
-              className="object-cover"
+              className={slideFit === 'contain' ? 'object-contain' : 'object-cover'}
               style={{ objectPosition: slide.position ?? 'center' }}
             />
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0"
-              style={{ background: scrim }}
+              style={{ background: slide.scrim ?? defaultScrim }}
             />
           </div>
         );
