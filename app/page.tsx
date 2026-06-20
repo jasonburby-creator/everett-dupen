@@ -1,15 +1,8 @@
-import SiteNav from '@/components/SiteNav';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Ribbon from "@/components/Ribbon";
 import { imgSrc } from "@/lib/img";
-
-const HERO = [
-  { file: "works/Icarus.jpg", w: 760, cls: "p1", alt: "Icarus, bronze" },
-  { file: "works/Rising-to-the-Sun.jpg", w: 620, cls: "p2", alt: "Rising to the Sun, bronze" },
-  { file: "works/Singers-and-Dancers.jpg", w: 620, cls: "p3", alt: "Singers and Dancers, bronze" },
-];
 
 const FEATURED = [
   { title: "Voyager", file: "works/Voyager.jpg" },
@@ -25,9 +18,7 @@ const FEATURED = [
 export default function Home() {
   return (
     <>
-      <SiteNav />
       <HeroSlideshow />
-      
 
       <Ribbon />
 
