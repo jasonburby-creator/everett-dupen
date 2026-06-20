@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 
 // Leaflet uses `window`, so we must load the map client-side only
@@ -40,8 +41,9 @@ export default function PublicWorksPage() {
         </div>
         <p className="lead-intro" style={{ marginBottom: "clamp(1.5rem,3vw,2.2rem)" }}>
           DuPen's sculpture lives where people gather — in parks, civic halls, cathedrals, libraries,
-          and university campuses. This map documents every known public and commissioned work, from the
-          Fountain of Creation at Seattle Center to a welded bronze screen in Vancouver, BC. Select any
+          and university campuses. This map documents every known public and commissioned work, from the{" "}
+          <Link href="/works/fountain-of-creation" style={{ color: "var(--bronze)", textDecoration: "none" }}>Fountain of Creation at Seattle Center</Link>{" "}
+          to a welded bronze screen in Vancouver, BC. Select any
           pin or listing to learn more.
         </p>
 
