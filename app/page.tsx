@@ -65,19 +65,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="museum-banner">
-        <div className="wrap">
-          <div>
-            <span className="mb-tag">On view now</span>
-            <h2>Eternal Forms: The Sculpture of Everett DuPen</h2>
-            <p>Cascadia Art Museum · Edmonds, Washington · through September 13, 2026</p>
-          </div>
-          <Link className="btn" href="/museum">
-            Exhibition details <span className="arr" aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-
       <section className="museum-banner ftn-banner">
         <div className="wrap">
           <div>
@@ -113,6 +100,19 @@ export default function Home() {
               <div className="sc-d">The illustrated monograph on DuPen's life and eight decades of sculpture.</div>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="museum-banner">
+        <div className="wrap">
+          <div>
+            <span className="mb-tag">On view now</span>
+            <h2>Eternal Forms: The Sculpture of Everett DuPen</h2>
+            <p>Cascadia Art Museum · Edmonds, Washington · through September 13, 2026</p>
+          </div>
+          <Link className="btn" href="/museum">
+            Exhibition details <span className="arr" aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
     </>
