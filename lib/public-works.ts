@@ -111,6 +111,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     description:
       "A monumental bronze portrait bust of Charles Odegaard, President of the University of Washington, located in the graduate library.",
     category: "campus",
+    image: "uw-odegaard.jpg",
   },
   {
     id: "uw-crew",
@@ -324,6 +325,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
     description:
       "Two life-size (11-foot) bronze figures for a commercial office building in Dallas — DuPen's only documented work in Texas.",
     category: "corporate",
+    image: "dallas-bronze-figures.jpg",
   },
   {
     id: "vancouver",
