@@ -310,3 +310,30 @@ a{ color:inherit; }
   .ribbon{ overflow-x:auto; }
 }
 :focus-visible{ outline:2px solid var(--patina); outline-offset:3px; }
+
+/* ---- add to your main stylesheet ---- */
+
+.director-bio {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 38rem;
+}
+.director-bio h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.director-bio p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #5c5043;
+}
+.director-bio p + p {
+  margin-top: 0.75rem;
+}
+.director-bio strong {
+  color: #1b1714;
+  font-weight: 600;
+}
