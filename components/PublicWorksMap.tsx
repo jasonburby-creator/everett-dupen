@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { PUBLIC_WORKS, CATEGORIES, type PublicWork } from "@/lib/public-works";
 
@@ -13,18 +13,23 @@ export default function PublicWorksMap() {
   const markersRef = useRef<any[]>([]);
   const [active, setActive] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("all");
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const filtered =
     filter === "all"
       ? PUBLIC_WORKS
       : PUBLIC_WORKS.filter((w) => w.category === filter);
 
+  const openLightbox = useCallback((e: React.MouseEvent, w: PublicWork) => {
+    e.stopPropagation();
+    if (w.image) setLightbox({ src: `/public-works/${w.image}`, alt: w.title });
+  }, []);
+
   // Initialize Leaflet map
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
 
     import("leaflet").then((L) => {
-      // Fix default icon paths for Leaflet in Next.js
       delete (L.Icon.Default.prototype as any)._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl:
@@ -47,7 +52,6 @@ export default function PublicWorksMap() {
 
       mapInstance.current = map;
 
-      // Add markers
       PUBLIC_WORKS.forEach((w) => {
         const cat = CATEGORIES[w.category];
         const icon = L.divIcon({
@@ -58,7 +62,7 @@ export default function PublicWorksMap() {
         });
 
         const imgTag = w.image
-          ? `<img src="/public-works/${w.image}" alt="${w.title}" style="width:100%;height:140px;object-fit:cover;border-radius:3px;margin-bottom:8px;" />`
+          ? `<img src="/public-works/${w.image}" alt="${w.title}" style="width:100%;max-height:180px;object-fit:contain;border-radius:3px;margin-bottom:8px;background:#f0ece5;" />`
           : "";
 
         const marker = L.marker([w.lat, w.lng], { icon })
@@ -76,7 +80,6 @@ export default function PublicWorksMap() {
 
         marker._pw = w;
         markersRef.current.push(marker);
-
         marker.on("click", () => setActive(w.id));
       });
     });
@@ -125,6 +128,14 @@ export default function PublicWorksMap() {
     }
   }, [active]);
 
+  // Close lightbox on Escape
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
   return (
     <>
       {/* Leaflet CSS */}
@@ -158,18 +169,19 @@ export default function PublicWorksMap() {
         })}
       </div>
 
-      {/* Map */}
-      <div
-        ref={mapRef}
-        style={{
-          width: "100%",
-          height: "min(56vh, 520px)",
-          borderRadius: "4px",
-          border: "1px solid var(--hair)",
-          marginBottom: "clamp(2rem,4vw,3rem)",
-          background: "var(--plaster-2)",
-        }}
-      />
+      {/* Sticky map wrapper */}
+      <div className="pw-map-sticky">
+        <div
+          ref={mapRef}
+          style={{
+            width: "100%",
+            height: "min(56vh, 520px)",
+            borderRadius: "4px",
+            border: "1px solid var(--hair)",
+            background: "var(--plaster-2)",
+          }}
+        />
+      </div>
 
       {/* Work list */}
       <div className="pw-list">
@@ -186,17 +198,6 @@ export default function PublicWorksMap() {
                 style={{ background: cat.color }}
               />
               <div className="pw-info">
-                {w.image && (
-                  <div className="pw-thumb">
-                    <Image
-                      src={`/public-works/${w.image}`}
-                      alt={w.title}
-                      width={400}
-                      height={160}
-                      style={{ width: "100%", height: "auto", objectFit: "cover" }}
-                    />
-                  </div>
-                )}
                 <div className="pw-cat" style={{ color: cat.color }}>
                   {cat.label}
                   {w.date ? ` · ${w.date}` : ""}
@@ -206,10 +207,57 @@ export default function PublicWorksMap() {
                 {w.medium && <div className="pw-med">{w.medium}</div>}
                 <p className="pw-desc">{w.description}</p>
               </div>
+              {w.image && (
+                <div
+                  className="pw-thumb"
+                  onClick={(e) => openLightbox(e, w)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View larger image of ${w.title}`}
+                  onKeyDown={(e) => { if (e.key === "Enter") openLightbox(e as any, w); }}
+                >
+                  <Image
+                    src={`/public-works/${w.image}`}
+                    alt={w.title}
+                    width={200}
+                    height={200}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                  <span className="pw-expand" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M6 1H1v5M10 1h5v5M6 15H1v-5M10 15h5v-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              )}
             </button>
           );
         })}
       </div>
+
+      {/* Lightbox overlay */}
+      {lightbox && (
+        <div
+          className="pw-lightbox"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-label="Enlarged artwork image"
+        >
+          <button
+            className="pw-lb-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="pw-lb-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 }
