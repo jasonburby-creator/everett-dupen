@@ -339,32 +339,7 @@ a{ color:inherit; }
 }
 :focus-visible{ outline:2px solid var(--patina); outline-offset:3px; }
 
-/* ---- add to your main stylesheet ---- */
 
-.director-bio {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  max-width: 38rem;
-}
-.director-bio h2 {
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
-.director-bio p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #5c5043;
-}
-.director-bio p + p {
-  margin-top: 0.75rem;
-}
-.director-bio strong {
-  color: #1b1714;
-  font-weight: 600;
-}
 
 /* ── Profiles featured publication (press page) ── */
 .profiles-feature{ display:grid; grid-template-columns:200px 1fr; gap:2rem; padding:2rem; background:var(--plaster); border:1px solid var(--hair); border-radius:6px; margin-bottom:clamp(2.5rem,5vw,4rem); }
@@ -457,3 +432,136 @@ a{ color:inherit; }
 .wfl-sub{ font-size:.85rem; color:var(--ink-soft); line-height:1.4; }
 .wfl-arrow{ grid-row:1/3; font-size:1.2rem; color:var(--bronze); }
 @media(max-width:620px){ .works-feature-link{ grid-template-columns:1fr auto; } .wfl-tag{ writing-mode:horizontal-tb; transform:none; grid-row:auto; } }
+
+/* ============================================================
+   MOBILE RESPONSIVENESS
+   ============================================================ */
+
+/* ── Touch devices: show catalogue captions always ── */
+@media(hover:none){
+  .cat-cap{ opacity:1; transform:none; }
+  .pw-expand{ opacity:1; }
+}
+
+/* ── 620px: small tablets / large phones ── */
+@media(max-width:620px){
+  body{ font-size:16px; }
+  .lead-intro{ font-size:1rem; }
+  .sec{ padding:clamp(2rem,6vw,3.5rem) 0; }
+  .page-top{ padding-top:clamp(1.5rem,4vw,2.5rem); }
+
+  /* Nav */
+  .nav{ height:56px; }
+  .word{ font-size:1.15rem; }
+  .word small{ font-size:.5rem; }
+
+  /* Ribbon */
+  .ribbon img{ height:100px; padding:5px; }
+
+  /* Buttons: larger touch targets */
+  .btn{ padding:1rem 1.4rem; font-size:.84rem; min-height:48px; }
+  .filter{ padding:.6rem 1rem; font-size:.78rem; min-height:44px; }
+
+  /* Statement */
+  .lead-row .big{ font-size:clamp(1.3rem,5vw,1.8rem); }
+
+  /* Featured grid: 2-col is fine at 620px */
+
+  /* Explore cards */
+  .sec-card{ padding:1.3rem; }
+  .sec-card .sc-t{ font-size:1.3rem; }
+
+  /* Museum / fountain banners */
+  .museum-banner h2{ font-size:clamp(1.4rem,5vw,2rem); }
+  .museum-banner .btn{ width:100%; justify-content:center; }
+
+  /* Biography */
+  .bio-quote p{ font-size:1.3rem; }
+
+  /* Profiles feature */
+  .profiles-info p{ font-size:.85rem; }
+
+  /* Press headlines */
+  .press-main .headline{ font-size:1.1rem; }
+
+  /* Film */
+  .film-title{ font-size:1.3rem; }
+
+  /* Fountain page */
+  .ftn-hero{ height:min(50vh, 360px); }
+  .ftn-hero-overlay h1{ font-size:clamp(1.8rem,7vw,2.6rem); }
+  .ftn-hero-overlay p{ font-size:.75rem; letter-spacing:.1em; }
+  .ftn-lede{ font-size:1.1rem; }
+  .ftn-visit{ padding:1.4rem; }
+  .ftn-further a{ font-size:.82rem; line-height:1.5; }
+
+  /* Public works lightbox */
+  .pw-lightbox{ padding:1rem; }
+  .pw-lb-img{ max-width:95vw; max-height:80vh; }
+  .pw-lb-close{ top:.8rem; right:.8rem; font-size:1.8rem; padding:.8rem; }
+
+  /* Catalogue lightbox */
+  .lb-img{ max-width:95vw; }
+  .lb-cap .t{ font-size:1.2rem; }
+  .lb-close{ width:48px; height:48px; }
+  .lb-btn{ width:44px; height:44px; font-size:1.2rem; }
+  .lb-prev{ left:.3rem; }
+  .lb-next{ right:.3rem; }
+
+  /* Footer */
+  .site-footer .wrap{ flex-direction:column; text-align:center; gap:.8rem; }
+  .foot-nav{ justify-content:center; }
+}
+
+/* ── 480px: small phones (iPhone SE, etc.) ── */
+@media(max-width:480px){
+  :root{ --gut:16px; }
+
+  /* Hero slideshow placard (Tailwind overrides via specificity) */
+  .sec-head h1, .sec-head h2{ font-size:clamp(1.6rem,7vw,2.4rem); }
+
+  /* Featured grid to 1-col */
+  .feat-grid{ grid-template-columns:1fr; }
+
+  /* Catalogue to 1-col */
+  .cat-grid{ column-count:1; }
+
+  /* Explore cards stack tighter */
+  .section-cards{ gap:.8rem; }
+
+  /* Book cover */
+  .book-cover{ max-width:280px; padding:1.8rem; }
+  .book-cover .bc-title{ font-size:1.6rem; }
+
+  /* Studio grid */
+  .studio-grid{ gap:1rem; }
+  .studio-fig figcaption{ padding:.5rem 0; }
+
+  /* Fountain page */
+  .ftn-hero{ height:min(45vh, 300px); }
+  .ftn-gallery--3{ grid-template-columns:1fr; }
+  .ftn-section h2{ font-size:1rem; }
+
+  /* Press list tighter */
+  .press-list a{ padding:1.2rem 0; }
+  .press-main .headline{ font-size:1rem; }
+
+  /* Public works cards */
+  .pw-title{ font-size:1.05rem; }
+  .pw-desc{ font-size:.85rem; }
+  .pw-thumb{ width:70px; height:70px; }
+
+  /* Résumé */
+  .cv-body li{ font-size:.9rem; }
+}
+
+/* ── 380px: very small phones ── */
+@media(max-width:380px){
+  :root{ --gut:12px; }
+  .nav{ height:50px; }
+  .word{ font-size:1.05rem; }
+  .filter{ padding:.5rem .8rem; font-size:.74rem; }
+  .museum-banner h2{ font-size:1.3rem; }
+  .profiles-feature{ grid-template-columns:90px 1fr; gap:1rem; padding:1rem; }
+  .profiles-info h2{ font-size:1.05rem; }
+}
