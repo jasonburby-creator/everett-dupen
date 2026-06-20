@@ -16,7 +16,7 @@ export default function FountainPage() {
       {/* Hero */}
       <div className="ftn-hero">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${IMG}/new-plaza-both-needle.jpg`} alt="The Fountain of Creation plaza at Seattle Center, with both bronze sculptures and the Space Needle beyond" />
+        <img src={`${IMG}/new-both-sculptures.jpg`} alt="The Fountain of Creation plaza at Seattle Center, with both bronze sculptures and Climate Pledge Arena beyond" />
         <div className="ftn-hero-overlay">
           <h1>Fountain of Creation</h1>
           <p>Seattle Center &middot; 1962 &ndash; present &middot; A Seattle Landmark</p>
