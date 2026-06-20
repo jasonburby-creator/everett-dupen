@@ -78,6 +78,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="museum-banner ftn-banner">
+        <div className="wrap">
+          <div>
+            <span className="mb-tag">Featured Work</span>
+            <h2>Fountain of Creation</h2>
+            <p>From the 1962 World's Fair to today — the full story of DuPen's most celebrated public work at Seattle Center.</p>
+          </div>
+          <Link className="btn" href="/works/fountain-of-creation">
+            Explore the fountain <span className="arr" aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
       <section className="sec">
         <div className="wrap">
           <div className="sec-head">

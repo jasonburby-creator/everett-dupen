@@ -443,3 +443,17 @@ a{ color:inherit; }
   .ftn-gallery--2{ grid-template-columns:1fr; }
   .ftn-gallery--3{ grid-template-columns:1fr; }
 }
+
+/* ── Fountain cross-links ── */
+.pw-feature-link{ display:inline-flex; align-items:center; gap:.3rem; margin-top:.6rem; font-size:.82rem; font-weight:600; color:var(--bronze); text-decoration:none; }
+.pw-feature-link:hover{ text-decoration:underline; }
+.ftn-banner{ background:var(--ink); }
+.ftn-banner h2{ color:#f5f1ea; }
+.ftn-banner p{ color:#c9bda9; }
+.works-feature-link{ display:grid; grid-template-columns:auto 1fr auto; gap:.5rem 1rem; align-items:center; padding:1rem 1.2rem; margin-bottom:1.5rem; background:var(--plaster); border:1px solid var(--hair); border-radius:6px; text-decoration:none; color:inherit; transition:background .2s; }
+.works-feature-link:hover{ background:var(--plaster-2); }
+.wfl-tag{ grid-row:1/3; font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:var(--bronze); writing-mode:vertical-lr; transform:rotate(180deg); }
+.wfl-title{ font-family:var(--f-display); font-style:italic; font-size:1.15rem; color:var(--ink); }
+.wfl-sub{ font-size:.85rem; color:var(--ink-soft); line-height:1.4; }
+.wfl-arrow{ grid-row:1/3; font-size:1.2rem; color:var(--bronze); }
+@media(max-width:620px){ .works-feature-link{ grid-template-columns:1fr auto; } .wfl-tag{ writing-mode:horizontal-tb; transform:none; grid-row:auto; } }
