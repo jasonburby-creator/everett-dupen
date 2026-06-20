@@ -284,7 +284,7 @@ export const PUBLIC_WORKS: PublicWork[] = [
   },
   {
     id: "edmonds-library",
-    title: "Diver",
+    title: "Vision",
     location: "Edmonds Library (formerly Agnes Anderson Library)",
     city: "Edmonds, WA",
     lat: 47.809988,
@@ -292,8 +292,9 @@ export const PUBLIC_WORKS: PublicWork[] = [
     date: "1983–84",
     medium: "Bronze",
     description:
-      "A bronze figure of a diver at the Edmonds Library, just blocks from where the Cascadia Art Museum now hosts the Eternal Forms exhibition.",
+      "A bronze figure reaching skyward at the Edmonds Library, just blocks from where the Cascadia Art Museum now hosts the Eternal Forms exhibition.",
     category: "civic",
+    image: "vision-edmonds.jpg",
   },
 
   // ── MUSEUMS ──
