@@ -106,7 +106,7 @@ export default function StudioPage() {
 
         <div className="prose" style={{ maxWidth: "38rem", marginBottom: "clamp(2rem,5vw,3.5rem)" }}>
           <p>
-            His daughter Novelle remembered the studio as his kingdom and sanctuary:
+            His daughter remembered the studio as his kingdom and sanctuary:
             &ldquo;The smells are still vivid to me &mdash; pipe tobacco, wet clay, wood, stone dust.
             Serene classical music played in the background. So much to look at: hundreds of sketches,
             art postcards, beach stones, shells, maquettes.&rdquo;
