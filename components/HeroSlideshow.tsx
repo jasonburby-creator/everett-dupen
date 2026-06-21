@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /* ------------------------------------------------------------------ *
- * Hero rotation — 7-image set
+ * Hero rotation — 8-image set
  * ------------------------------------------------------------------ *
  *  - fit      'cover'   = full-bleed crop (landscape/environmental)
  *             'contain' = show the entire work, pad the sides
@@ -47,6 +47,15 @@ const SLIDES: Slide[] = [
     fit: 'cover',
   },
   {
+    src: '/hero/museum-exhibition.jpg',
+    title: 'Eternal Forms',
+    material: 'On view at Cascadia Art Museum through Sep 2026',
+    alt: 'Exhibition entrance panel for "Eternal Forms: The Sculpture of Everett DuPen" at Cascadia Art Museum in Edmonds, Washington.',
+    position: 'center 30%',
+    tone: 'dark',
+    fit: 'cover',
+  },
+  {
     src: '/hero/workshop.jpg',
     title: 'The Artist at Work',
     material: 'In the studio',
@@ -80,15 +89,6 @@ const SLIDES: Slide[] = [
     alt: 'Marble sculpture by Everett DuPen titled "Happy Gardener," a reclining woman cradling an infant.',
     tone: 'light',
     fit: 'cover',
-  },
-  {
-    src: '/hero/the-reader-and-female-relief.jpg',
-    title: 'The Reader & Female Relief',
-    material: 'Bronze relief',
-    alt: 'Pair of bronze relief panels by Everett DuPen \u2014 "The Reader" and "Female Relief," compact seated figures.',
-    tone: 'light',
-    fit: 'contain',
-    bg: '#d5d0c9',
   },
   {
     src: '/hero/family-group.jpg',
