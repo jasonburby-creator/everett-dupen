@@ -5,14 +5,14 @@ import Ribbon from "@/components/Ribbon";
 import { imgSrc } from "@/lib/img";
 
 const FEATURED = [
-  { title: "Voyager", file: "works/Voyager.jpg" },
-  { title: "Dance Fantasy", file: "works/Dance-Fantasy.jpg" },
-  { title: "Madonna of the Two Cities", file: "works/Madonna-of-the-Two-Cities.jpg" },
-  { title: "Lotus", file: "works/Lotus.jpg" },
-  { title: "Vaulting Kouros", file: "works/Vaulting-Kouros.jpg" },
-  { title: "Sea Form", file: "works/Sea-Form.jpg" },
-  { title: "Diver", file: "works/Diver.jpg" },
-  { title: "Celestia", file: "works/Celestia.jpg" },
+  { title: "Dance Fantasy", file: "works/Dance-Fantasy.jpg", medium: "Bronze" },
+  { title: "Observer", file: "works/Observer.jpg", medium: "Rosewood" },
+  { title: "Madonna of the Two Cities", file: "works/Madonna-of-the-Two-Cities.jpg", medium: "Bronze" },
+  { title: "Bathsheba", file: "works/Bathsheba.jpg", medium: "Marble" },
+  { title: "Voyager", file: "works/Voyager.jpg", medium: "Bronze" },
+  { title: "Family Group", file: "works/Family-Group.jpg", medium: "Walnut" },
+  { title: "Prometheus", file: "works/Prometheus.jpg", medium: "Marble" },
+  { title: "Celestia", file: "works/Celestia.jpg", medium: "Bronze" },
 ];
 
 export default function Home() {
@@ -51,7 +51,7 @@ export default function Home() {
                   <img src={imgSrc(f.file, 560)} alt={`${f.title}, by Everett DuPen`} loading="lazy" />
                   <span className="cat-cap">
                     <span className="t">{f.title}</span>
-                    <span className="m">Bronze</span>
+                    <span className="m">{f.medium}</span>
                   </span>
                 </span>
               </Link>
