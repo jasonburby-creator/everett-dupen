@@ -10,6 +10,30 @@ export const metadata: Metadata = {
   },
   description:
     "The life and complete works of Everett DuPen (1912–2005), American figurative sculptor and University of Washington professor — bronze, wood, stone, and drawings.",
+  metadataBase: new URL("https://www.everettdupen.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Everett DuPen — American Sculptor",
+    title: "Everett DuPen — American Sculptor, 1912–2005",
+    description:
+      "The life and complete works of Everett DuPen (1912–2005), American figurative sculptor and University of Washington professor.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Family Group, walnut carving by Everett DuPen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Everett DuPen — American Sculptor, 1912–2005",
+    description:
+      "The life and complete works of Everett DuPen (1912–2005), American figurative sculptor and University of Washington professor.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
