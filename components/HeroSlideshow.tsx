@@ -49,7 +49,7 @@ const SLIDES: Slide[] = [
   {
     src: '/hero/museum-exhibition.jpg',
     title: 'Eternal Forms',
-    material: 'On view at Cascadia Art Museum through Sep 2026',
+    material: 'On view at Cascadia Art Museum, Edmonds, WA — through Sep 2026',
     alt: 'Exhibition entrance panel for "Eternal Forms: The Sculpture of Everett DuPen" at Cascadia Art Museum in Edmonds, Washington.',
     position: 'center 30%',
     tone: 'dark',
