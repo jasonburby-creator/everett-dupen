@@ -1,4 +1,4 @@
-export type Category = "Bronze" | "Wood" | "Stone" | "Drawings";
+export type Category = "Bronze" | "Wood" | "Stone" | "Terra Cotta" | "Drawings";
 
 export interface Work {
   category: Category;
@@ -7,7 +7,7 @@ export interface Work {
   medium: string;
 }
 
-export const CATEGORIES = ["All", "Bronze", "Wood", "Stone", "Drawings"] as const;
+export const CATEGORIES = ["All", "Bronze", "Wood", "Stone", "Terra Cotta", "Drawings"] as const;
 export type Filter = (typeof CATEGORIES)[number];
 
 export const WORKS: Work[] = [
@@ -81,6 +81,8 @@ export const WORKS: Work[] = [
   { category: "Stone", title: "Lady Marble", file: "works/Marble-Girl.jpg", medium: "Marble · 1958 · 6.5 × 5 × 7.5 in" },
   { category: "Stone", title: "Indecision", file: "works/Indecision.jpg", medium: "Marble · 1993 · 10 × 5 × 6 in" },
   { category: "Stone", title: "Happy Gardener", file: "works/Happy-Gardener.jpg", medium: "Sandstone · 1997 · 20 × 12 × 12 in" },
+  // —— TERRA COTTA (1) ——
+  { category: "Terra Cotta", title: "Reclining Nude", file: "works/Reclining-Nude-Terra-Cotta.jpg", medium: "Terra cotta · 6.5 × 9 × 5 in" },
   // —— DRAWINGS (20) ——
   { category: "Drawings", title: "Study", file: "works/drawing1.jpg", medium: "Drawing" },
   { category: "Drawings", title: "Study", file: "works/drawing2.jpg", medium: "Drawing" },
