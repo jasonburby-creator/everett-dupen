@@ -41,7 +41,7 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head">
             <Reveal as="h2">Selected Works</Reveal>
-            <span className="count">A few of eighty-seven</span>
+            <span className="count">From the collection</span>
           </div>
           <div className="feat-grid">
             {FEATURED.map((f) => (
@@ -59,7 +59,7 @@ export default function Home() {
           </div>
           <div className="feat-more">
             <Link className="btn btn-ghost" href="/works">
-              See all 87 works <span className="arr" aria-hidden="true">→</span>
+              Browse the collection <span className="arr" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function Home() {
             <Link className="sec-card" href="/works">
               <div className="sc-k">The Work</div>
               <div className="sc-t">Complete catalogue</div>
-              <div className="sc-d">All 87 pieces in bronze, wood, stone, and drawings.</div>
+              <div className="sc-d">Selected works in bronze, wood, stone, terra cotta, and drawings.</div>
             </Link>
             <Link className="sec-card" href="/artist/book">
               <div className="sc-k">The Book</div>
