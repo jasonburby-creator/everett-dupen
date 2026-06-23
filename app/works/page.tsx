@@ -4,7 +4,7 @@ import WorksGallery from "@/components/WorksGallery";
 
 export const metadata: Metadata = {
   title: "Works",
-  description: "The complete catalogue of Everett DuPen's sculpture and drawings — 87 works in bronze, wood, stone, and on paper.",
+  description: "Selected works from the sculpture and drawings of Everett DuPen — bronze, wood, stone, terra cotta, and drawings from a career spanning eight decades.",
 };
 
 export default function WorksPage() {
@@ -12,12 +12,13 @@ export default function WorksPage() {
     <section className="sec page-top">
       <div className="wrap">
         <div className="sec-head">
-          <h1>The Catalogue</h1>
-          <span className="count">87 works</span>
+          <h1>Selected Works</h1>
+          <span className="count">From a career spanning eight decades</span>
         </div>
         <p className="lead-intro" style={{ marginBottom: "1.5rem" }}>
-          Everett DuPen worked across bronze, wood, stone, and paper for nearly eight decades. Filter
-          by medium, and select any piece to view it larger.
+          Everett DuPen&apos;s output spanned hundreds of pieces in bronze, wood, stone, terra cotta, and
+          on paper. This is a growing selection — more works are added as they are photographed
+          and documented.
         </p>
         <Link href="/works/fountain-of-creation" className="works-feature-link">
           <span className="wfl-tag">Featured</span>
