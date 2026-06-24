@@ -67,14 +67,20 @@ export default function Home() {
 
       <section className="museum-banner ftn-banner">
         <div className="wrap">
-          <div>
+          <div className="ftn-tag">
             <span className="mb-tag">Featured Work</span>
-            <h2>Fountain of Creation</h2>
-            <p>From the 1962 World's Fair to today — the full story of DuPen's most celebrated public work at Seattle Center.</p>
           </div>
-          <Link className="btn" href="/works/fountain-of-creation">
-            Explore the fountain <span className="arr" aria-hidden="true">→</span>
-          </Link>
+          <div className="ftn-img">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/hero/seattle-center-fountain.jpg" alt="DuPen's Fountain of Creation at Seattle Center" />
+          </div>
+          <div className="ftn-text">
+            <h2>Fountain of Creation</h2>
+            <p>From the 1962 World&apos;s Fair to today — the full story of DuPen&apos;s most celebrated public work at Seattle Center.</p>
+            <Link className="btn" href="/works/fountain-of-creation">
+              Explore the fountain <span className="arr" aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
