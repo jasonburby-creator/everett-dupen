@@ -22,8 +22,12 @@ export default function WorksPage() {
         </p>
         <Link href="/works/fountain-of-creation" className="works-feature-link">
           <span className="wfl-tag">Featured</span>
-          <span className="wfl-title">Fountain of Creation</span>
-          <span className="wfl-sub">The full story of DuPen's most celebrated public work — from the 1962 World's Fair to today.</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="wfl-img" src="/hero/seattle-center-fountain.jpg" alt="DuPen's Fountain of Creation at Seattle Center" />
+          <span className="wfl-body">
+            <span className="wfl-title">Fountain of Creation</span>
+            <span className="wfl-sub">The full story of DuPen&apos;s most celebrated public work — from the 1962 World&apos;s Fair to today.</span>
+          </span>
           <span className="wfl-arrow" aria-hidden="true">→</span>
         </Link>
         <WorksGallery />
