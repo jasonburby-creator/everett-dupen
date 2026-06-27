@@ -289,8 +289,8 @@ export const PUBLIC_WORKS: PublicWork[] = [
     city: "Edmonds, WA",
     lat: 47.809988,
     lng: -122.372746,
-    date: "1983–84",
-    medium: "Bronze",
+    date: "1984",
+    medium: "Bronze · 6 ft",
     description:
       "A bronze figure reaching skyward at the Edmonds Library, just blocks from where the Cascadia Art Museum now hosts the Eternal Forms exhibition.",
     category: "civic",
