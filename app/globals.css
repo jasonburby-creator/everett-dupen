@@ -573,3 +573,8 @@ a{ color:inherit; }
   .profiles-feature{ grid-template-columns:90px 1fr; gap:1rem; padding:1rem; }
   .profiles-info h2{ font-size:1.05rem; }
 }
+
+/* Lasting Impact page */
+.impact-prose{ max-width:720px; }
+.impact-prose h2{ font-family:var(--f-display); font-size:1.4rem; color:var(--bronze); margin:2.5rem 0 .8rem; }
+.impact-closing{ font-family:var(--f-display); font-style:italic; font-size:1.15rem; color:var(--ink); margin-top:1.5rem; }
