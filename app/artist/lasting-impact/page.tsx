@@ -40,6 +40,15 @@ export default function LastingImpactPage() {
           </Reveal>
 
           <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="impact-img"
+              src="/hero/museum-exhibition.jpg"
+              alt="Eternal Forms exhibition at Cascadia Art Museum, showing the entrance panel and gallery filled with DuPen sculptures"
+            />
+          </Reveal>
+
+          <Reveal>
             <h2>Shaping Public Spaces</h2>
             <p>
               Everett DuPen believed sculpture belonged in everyday life. It was not something
@@ -51,6 +60,18 @@ export default function LastingImpactPage() {
               sacred works, and civic sculptures that became part of the shared experience of
               communities across the Pacific Northwest.
             </p>
+          </Reveal>
+
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="impact-img"
+              src="/hero/seattle-center-fountain.jpg"
+              alt="DuPen's Fountain of Creation at Seattle Center with the Space Needle in the background"
+            />
+          </Reveal>
+
+          <Reveal>
             <p>
               Perhaps nowhere is this more evident than in the Fountain of Creation at Seattle
               Center. Created for the 1962 Seattle World&rsquo;s Fair, the fountain has remained
@@ -82,6 +103,18 @@ export default function LastingImpactPage() {
               that understanding the human figure required more than observation; it required
               empathy, discipline, and a lifelong commitment to learning.
             </p>
+          </Reveal>
+
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="impact-img"
+              src="/hero/workshop.jpg"
+              alt="Everett DuPen at work in his studio"
+            />
+          </Reveal>
+
+          <Reveal>
             <p>
               The impact of that philosophy extended far beyond the university. Thousands of
               students passed through his studio over nearly forty years. Many became artists,
@@ -115,6 +148,18 @@ export default function LastingImpactPage() {
               figure&mdash;not as an exercise in realism, but as a timeless language capable of
               communicating movement, emotion, dignity, vulnerability, and spirit.
             </p>
+          </Reveal>
+
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="impact-img impact-img-portrait"
+              src="/works/Dance-Fantasy.jpg"
+              alt="Dance Fantasy, bronze sculpture by Everett DuPen"
+            />
+          </Reveal>
+
+          <Reveal>
             <p>
               His work reflects an extraordinary understanding of anatomy developed through years
               of study, observation, and practice. Yet technical mastery was never the destination.
@@ -137,6 +182,34 @@ export default function LastingImpactPage() {
               drawing. Each medium demanded different techniques, different tools, and different
               ways of thinking, yet his artistic voice remained remarkably consistent.
             </p>
+          </Reveal>
+
+          <Reveal>
+            <div className="impact-grid-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <figure>
+                <img src="/works/Celestia.jpg" alt="Celestia, bronze" />
+                <figcaption>Celestia · Bronze</figcaption>
+              </figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <figure>
+                <img src="/works/Family-Group.jpg" alt="Family Group, walnut" />
+                <figcaption>Family Group · Walnut</figcaption>
+              </figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <figure>
+                <img src="/works/Bathsheba.jpg" alt="Bathsheba, marble" />
+                <figcaption>Bathsheba · Marble</figcaption>
+              </figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <figure>
+                <img src="/works/Portrait-of-Destia.jpg" alt="Portrait of Destia, terra cotta" />
+                <figcaption>Portrait of Destia · Terra cotta</figcaption>
+              </figure>
+            </div>
+          </Reveal>
+
+          <Reveal>
             <p>
               His sculptures reveal a lifelong commitment to craftsmanship&mdash;not as an end in
               itself, but as a way of honoring both material and subject. Whether carving directly
@@ -167,6 +240,18 @@ export default function LastingImpactPage() {
               renewed interest of historians, curators, collectors, students, and visitors seeking
               to better understand the artistic history of the Pacific Northwest.
             </p>
+          </Reveal>
+
+          <Reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="impact-img impact-img-portrait"
+              src="/images/dupen-closeup.jpg"
+              alt="Portrait of Everett DuPen"
+            />
+          </Reveal>
+
+          <Reveal>
             <p>
               This website is part of that continuing legacy. It exists not simply to preserve a
               record of Everett DuPen&rsquo;s work, but to celebrate the many ways his life
