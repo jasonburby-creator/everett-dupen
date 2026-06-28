@@ -141,7 +141,11 @@ export default function BiographyPage() {
             <cite>— Everett DuPen, his final words to his children, May 2005</cite>
           </blockquote>
           <p className="bio-quotes-source">
-            Biography drawn from David F. Martin, <em>Eternal Forms: The Sculpture of Everett DuPen</em> (Cascadia Art Museum, 2026) and{" "}
+            Biography drawn from David F. Martin,{" "}
+            <a href="https://www.amazon.com/Eternal-Forms-Sculpture-Everett-DuPen/dp/0998911283" target="_blank" rel="noopener">
+              <em>Eternal Forms: The Sculpture of Everett DuPen</em>
+            </a>{" "}
+            (Cascadia Art Museum, 2026) and{" "}
             <a href="/profiles-dupen-2012.pdf" target="_blank" rel="noopener">
               <em>Profiles: Everett DuPen and His Legacy</em>
             </a>
